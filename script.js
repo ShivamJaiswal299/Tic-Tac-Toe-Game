@@ -38,6 +38,7 @@ const fn=(i)=>{
         stat="o";
         aS[i-1]="x";
     }
+    a[i-1].style.pointerEvents = "none";
 }
 const winner=()=>{
     if((aS[0]=="o"&&aS[1]=="o"&&aS[2]=="o")||(aS[3]=="o"&&aS[4]=="o"&&aS[5]=="o")||(aS[6]=="o"&&aS[7]=="o"&&aS[8]=="o")||(aS[0]=="o"&&aS[3]=="o"&&aS[6]=="o")||(aS[1]=="o"&&aS[4]=="o"&&aS[7]=="o")||(aS[2]=="o"&&aS[5]=="o"&&aS[8]=="o")||(aS[0]=="o"&&aS[4]=="o"&&aS[8]=="o")||(aS[4]=="o"&&aS[2]=="o"&&aS[6]=="o")){
