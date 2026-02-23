@@ -1,17 +1,7 @@
 let zero = document.querySelector(".para1");
 let cross = document.querySelector(".para2");
 let stat;
-zero.addEventListener("click",()=>{
-    stat="o";
-    document.querySelector(".outerBox").classList.remove("hidden");
-    document.querySelector(".chosing").classList.add("hidden2");
-});
-cross.addEventListener("click",()=>{
-    stat="x";
-    document.querySelector(".outerBox").classList.remove("hidden");
-    document.querySelector(".chosing").classList.add("hidden2");
-
-});
+let reset=document.querySelector(".playagain");
 let jsb1 = document.querySelector("#b1");
 let jsb2 = document.querySelector("#b2");
 let jsb3 = document.querySelector("#b3");
@@ -23,6 +13,32 @@ let jsb8 = document.querySelector("#b8");
 let jsb9 = document.querySelector("#b9");
 let a = [jsb1,jsb2,jsb3,jsb4,jsb5,jsb6,jsb7,jsb8,jsb9];
 let aS= [0,0,0,0,0,0,0,0,0];
+const resetfn=()=>{
+    document.querySelector(".result p").innerText="O - Won";
+    document.querySelector(".result").classList.add("hidden3");
+    document.querySelector(".chosing").classList.remove("hidden2");
+    aS= [0,0,0,0,0,0,0,0,0];
+    for(let i=0;i<9;i++){
+        a[i].classList.remove("zerotick");
+        a[i].classList.remove("crosstick");
+        a[i].classList.remove("oxox1");
+        a[i].classList.remove("oxox2");
+        a[i].innerText="";
+        a[i].innerText="";
+        a[i].style.pointerEvents = "auto";
+    }
+}
+zero.addEventListener("click",()=>{
+    stat="o";
+    document.querySelector(".outerBox").classList.remove("hidden");
+    document.querySelector(".chosing").classList.add("hidden2");
+});
+cross.addEventListener("click",()=>{
+    stat="x";
+    document.querySelector(".outerBox").classList.remove("hidden");
+    document.querySelector(".chosing").classList.add("hidden2");
+
+});
 const fn=(i)=>{
     if(stat=="o"){
         a[i-1].classList.add("zerotick");
@@ -98,3 +114,6 @@ jsb9.addEventListener("click",()=>{
     fn(9);
     winner();
 });
+reset.addEventListener("click",()=>{
+    resetfn();
+})
